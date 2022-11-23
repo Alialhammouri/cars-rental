@@ -1,0 +1,73 @@
+<%= render :partial => "admins/shared/admin_nav_bar" %>
+
+<div class="container">
+  <div class="row">
+    <div class="card bg-light" style="width: 20rem;">
+      <div class="card-body">
+        <h5 class="card-title">Manage Offices</h5>
+        <p class="card-text">Click here to view and manage all the Offices</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+    <div class="card bg-light" style="width: 20rem;">
+      <div class="card-body">
+        <h5 class="card-title">Manage Customers</h5>
+        <p class="card-text">Click here to view and manage all the Customers</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="card bg-light" style="width: 20rem;">
+      <div class="card-body">
+        <h5 class="card-title">Manage Cars</h5>
+        <p class="card-text">Click here to view and manage all the Cars</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+    <div class="card bg-light" style="width: 20rem;">
+      <div class="card-body">
+        <h5 class="card-title">Manage Bookings</h5>
+        <p class="card-text">Click here to view and manage all the Bookings</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="card bg-light" style="width: 20rem;">
+      <div class="card-body">
+        <h5 class="card-title">Manage Admins</h5>
+        <p class="card-text">Click here to view all admins</p>
+        <%= button_to "Here", show_admins_path, :method => "get", class: "btn btn-primary" %>
+      </div>
+    </div>
+    <div class="card bg-light" style="width: 20rem;">
+      <div class="card-body">
+        <h5 class="card-title">Create New Admin</h5>
+        <p class="card-text">Click here to create new admin</p>
+        <%= button_to "Here", new_admin_path, :method => "get", class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<style media="screen">
+  body {
+    background: -webkit-gradient(linear, left top, left bottom, from(#F0F8FF), to(#B0C4DE)) fixed;
+  }
+
+  .card{
+    margin: auto;
+  }
+
+  .container {
+    margin-top: 20px;
+  }
+</style>

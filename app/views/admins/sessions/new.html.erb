@@ -1,0 +1,40 @@
+<div class="row d-flex justify-content-center">
+  <div class="col-md-4 col-md-offset-4 rounded-3">
+    <div class="login-panel panel panel-default">
+      <br>
+      <div class="panel-heading">
+        <h3> Please Sign In </h3>
+      </div>
+      <div class="panel-body">
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <fieldset>
+            <div class="field">
+              <%= f.label :email %><br />
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
+            </div>
+            <div class="field">
+              <%= f.label :password %><br />
+              <%= f.password_field :password, autocomplete: "current-password", class: 'form-control' %>
+            </div>
+            <% if devise_mapping.rememberable? %>
+            <div class="field">
+              <%= f.check_box :remember_me %>
+              <%= f.label :remember_me %>
+            </div>
+            <% end %>
+            <div class="actions">
+              <%= f.submit "Log in", class: "btn btn-primary" %>
+            </div>
+            <br>
+          <% end %>
+        </fieldset>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style media="screen">
+  body {
+    background: -webkit-gradient(linear, left top, left bottom, from(#F0F8FF), to(#B0C4DE)) fixed;
+  }
+</style>

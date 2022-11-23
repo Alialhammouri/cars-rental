@@ -1,0 +1,24 @@
+<nav class="navbar navbar-expand-lg navbar-light py-3" style="background-color: #72A0C1;">
+  <div class="collapse navbar-collapse">
+    <ul class="navbar-nav log-out">
+      <li class="nav-item edit-profile">
+        <%= button_to "Edit Profile", destroy_admin_session_path, :method => :delete, class: 'btn btn-primary' %>
+      </li>
+      <li class="nav-item">
+        <%= button_to "Log out", destroy_admin_session_path, :method => :delete, class: 'btn btn-danger' %>
+      </li>
+    </ul>
+  </div>
+</nav>
+<br>
+<br>
+
+<style media="screen">
+  .log-out {
+    margin-left: 1200px;
+  }
+
+  .edit-profile{
+    margin-right: 10px;
+  }
+</style>
