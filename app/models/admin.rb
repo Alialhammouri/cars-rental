@@ -1,5 +1,5 @@
 class Admin < ApplicationRecord
-  # validate :password_complexity
+  validate :password_complexity
 
   devise :database_authenticatable, :recoverable, :rememberable, :validatable
 

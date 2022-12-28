@@ -1,6 +1,6 @@
 class Customer < ApplicationRecord
 
-  # validate :password_complexity
+  validate :password_complexity
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
