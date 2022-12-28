@@ -1,7 +1,13 @@
 class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(resource)
-    admins_path
+    if resource.class.to_s == "Admin"
+      admins_path
+    elsif resource.class.to_s == "Office"
+      offices_path
+    else
+      main_page_path
+    end
   end
-
+  
 end

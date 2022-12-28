@@ -1,28 +1,34 @@
-<div class="row" style="margin-top:300px">
+<div class="row" style="margin-top:75px">
   <div class="col-sm-4">
-    <div class="card">
-      <div class="card-body bg-light">
+    <div class="card bg-light" style="height: 40rem;">
+      <div class="card-body">
         <h5 class="card-title">Customer</h5>
         <p class="card-text">Are you looking to rent a car</p>
-        <a href="#" class="btn btn-primary">Change Later</a>
+        <%= button_to "Sign In", customer_session_path, :method => "get", class: "btn btn-primary" %>
+        <br>
+        <%= image_tag "Customer.png", size: "400x380" %>
       </div>
     </div>
   </div>
   <div class="col-sm-4">
-    <div class="card bg-light">
+    <div class="card bg-light" style="height: 40rem;">
       <div class="card-body">
         <h5 class="card-title">Client</h5>
-        <p class="card-text">If you have a rental cars office and looking to be a client</p>
-        <a href="#" class="btn btn-primary">Change Later</a>
+        <p class="card-text">Office panel page</p>
+        <%= button_to "Sign In", office_session_path, :method => "get", class: "btn btn-primary" %>
+        <br>
+        <%= image_tag "Office.png", size: "400x420" %>
       </div>
     </div>
   </div>
   <div class="col-sm-4">
-    <div class="card">
-      <div class="card-body bg-light">
+    <div class="card bg-light" style="height: 40rem;">
+      <div class="card-body">
         <h5 class="card-title">Admin</h5>
         <p class="card-text">Admin panel only</p>
         <%= button_to "Sign In", admin_session_path, :method => "get", class: "btn btn-primary" %>
+        <br>
+        <%= image_tag "Admin.png", size: "400x380" %>
       </div>
     </div>
   </div>
@@ -33,3 +39,5 @@
     background: -webkit-gradient(linear, left top, left bottom, from(#E4E5E6), to(#6FB1FC)) fixed;
   }
 </style>
+
+

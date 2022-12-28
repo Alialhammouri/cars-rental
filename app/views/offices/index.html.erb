@@ -1,0 +1,55 @@
+<% if office_signed_in? %>
+<%= render :partial => "offices/shared/office_nav_bar" %>
+<div class="container">
+  <div class="row">
+    <div class="card bg-light" style="width: 20rem; height: 10rem;">
+      <div class="card-body" style="width: 20rem; height: 10rem;">
+        <h5 class="card-title">Add New Car</h5>
+        <p class="card-text">Click here to add a new car</p>
+        <%= button_to "Here", new_car_path, :method => "get", class: "btn btn-primary" %>
+      </div>
+    </div>
+    <div class="card bg-light" style="width: 20rem; height: 10rem;">
+      <div class="card-body" style="width: 20rem; height: 10rem;">
+        <h5 class="card-title">Manage Cars</h5>
+        <p class="card-text">Click here to manage your cars</p>
+        <%= button_to "Here", own_cars_path, :method => "get", class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="row">
+    <div class="card bg-light" style="width: 20rem; height: 10rem;">
+      <div class="card-body" style="width: 20rem; height: 10rem;">
+        <h5 class="card-title">Manage Bookings</h5>
+        <p class="card-text">Click here to mange all bookings</p>
+        <%= button_to "Here", show_admins_path, :method => "get", class: "btn btn-primary" %>
+      </div>
+    </div>
+    <div class="card bg-light" style="width: 20rem; height: 10rem;">
+      <div class="card-body" style="width: 20rem; height: 10rem;">
+        <h5 class="card-title">Not Yet</h5>
+        <p class="card-text">Click here to create new admin</p>
+        <%= button_to "Here", cancel_office_registration_path, :method => "get", class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style media="screen">
+  body {
+    background: -webkit-gradient(linear, left top, left bottom, from(#F0F8FF), to(#A9A9A9)) fixed;
+  }
+
+  .card{
+    margin: auto;
+  }
+
+  .container {
+    margin-top: 20px;
+  }
+</style>
+<% end %>

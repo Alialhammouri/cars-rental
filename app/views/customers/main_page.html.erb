@@ -1,0 +1,28 @@
+<%= render :partial => "customers/shared/customer_nav_bar" %>
+
+<%Car.all.each do |car| %>
+	<div class="row">
+    <div class="card bg-light" style="height: 300px;">
+    	<div class="card-body">
+    		<h5 class="card-title"><%= "#{car.manufacture_year} #{car.manufacturer} #{car.model}" %></h5>
+    		<%= image_tag car.photos.first, size: "210x220" %>
+
+
+    </div>
+	</div>
+	<br>
+	<% end %>
+
+
+
+<style media="screen">
+  body {
+    background: -webkit-gradient(linear, left top, left bottom, from(#F0F8FF), to(#B0C4DE)) fixed;
+  }
+  
+  .back-button {
+    position: absolute;
+    left: 15px;
+    bottom: 15px;
+  }
+</style>

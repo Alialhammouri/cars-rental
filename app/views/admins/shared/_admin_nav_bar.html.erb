@@ -2,7 +2,6 @@
   <div class="collapse navbar-collapse">
     <ul class="navbar-nav log-out">
       <li class="nav-item edit-profile">
-        <%= button_to "Edit Profile", destroy_admin_session_path, :method => :delete, class: 'btn btn-primary' %>
       </li>
       <li class="nav-item">
         <%= button_to "Log out", destroy_admin_session_path, :method => :delete, class: 'btn btn-danger' %>
@@ -15,7 +14,7 @@
 
 <style media="screen">
   .log-out {
-    margin-left: 1200px;
+    margin-left: 1300px;
   }
 
   .edit-profile{
