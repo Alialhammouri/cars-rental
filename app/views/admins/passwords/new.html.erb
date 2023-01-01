@@ -25,9 +25,18 @@
     </div>
   </div>
 </div>
+<footer>
+  <%= button_to "Back", root_path, :method => "get", class: "btn btn-outline-dark back-button" %>
+</footer>
 
 <style media="screen">
   body {
     background: -webkit-gradient(linear, left top, left bottom, from(#F0F8FF), to(#B0C4DE)) fixed;
+  }
+
+  .back-button {
+    position: absolute;
+    left: 15px;
+    bottom: 15px;
   }
 </style>

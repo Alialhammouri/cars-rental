@@ -1,90 +1,91 @@
 <% if office_signed_in? %>
-<%= render :partial => "offices/shared/office_nav_bar" %>
-<div class="row d-flex justify-content-center">
-  <div class="col-md-4 col-md-offset-4 rounded-3">
-    <div class="login-panel panel panel-default">
-      <br>
-      <div class="panel-heading">
-        <h3> <%= action_name.camelize %> Car </h3>
-      </div>
-      <div class="panel-body">
-        <%= form_with(model: car) do |form| %>
-          <% if car.errors.any? %>
-            <div style="color: red">
-              <h2><%= pluralize(car.errors.count, "error") %> prohibited this admin from being saved:</h2>
-              <ul>
-                <% car.errors.each do |error| %>
-                  <li><%= error.full_message %></li>
-                <% end %>
-              </ul>
+  <%= render :partial => "offices/shared/office_nav_bar" %>
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-4 col-md-offset-4 rounded-3">
+      <div class="login-panel panel panel-default">
+        <br>
+        <div class="panel-heading">
+          <h3> <%= action_name.camelize %> Car </h3>
+        </div>
+        <div class="panel-body">
+          <%= form_with(model: car) do |form| %>
+            <% if car.errors.any? %>
+              <div style="color: red">
+                <h2><%= pluralize(car.errors.count, "error") %> prohibited this admin from being saved:</h2>
+                <ul>
+                  <% car.errors.each do |error| %>
+                    <li><%= error.full_message %></li>
+                  <% end %>
+                </ul>
+              </div>
+            <% end %>
+            <div>
+              <%= form.label :car_plate_number, style: "display: block" %>
+              <%= form.text_field :car_plate_number, class: 'form-control' %>
+            </div>
+
+            <div>
+              <%= form.label :manufacturer, style: "display: block" %>
+              <%= form.text_field :manufacturer, class: 'form-control' %>
+            </div>
+
+            <div>
+              <%= form.label :model, style: "display: block" %>
+              <%= form.text_field :model, class: 'form-control' %>
+            </div>
+
+            <div>
+              <%= form.label :manufacture_year, style: "display: block" %>
+              <%= form.text_field :manufacture_year, class: 'form-control' %>
+            </div>
+
+            <div>
+              <%= form.label :color, style: "display: block" %>
+              <%= form.text_field :color, class: 'form-control' %>
+            </div>
+
+            <div>
+              <%= form.label :renting_price, style: "display: block" %>
+              <%= form.text_field :renting_price, class: 'form-control' %>
+            </div>
+
+            <br>
+            <div class="photos">
+              <%= form.label :photos %>
+              <%= form.file_field :photos, :multiple => true %>
+            </div>
+
+            <div style="display: none;">
+              <%= form.label :available, style: "display: block" %>
+              <%= form.check_box :available, checked:true %>
+            </div>
+
+            <%= form.hidden_field :office_id, value: current_office.id %>
+            
+            <br>
+            <div class="actions">
+              <%= form.submit class: "btn btn-primary" %>
             </div>
           <% end %>
-          <div>
-            <%= form.label :car_plate_number, style: "display: block" %>
-            <%= form.text_field :car_plate_number, class: 'form-control' %>
-          </div>
-
-          <div>
-            <%= form.label :manufacturer, style: "display: block" %>
-            <%= form.text_field :manufacturer, class: 'form-control' %>
-          </div>
-
-          <div>
-            <%= form.label :model, style: "display: block" %>
-            <%= form.text_field :model, class: 'form-control' %>
-          </div>
-
-          <div>
-            <%= form.label :manufacture_year, style: "display: block" %>
-            <%= form.text_field :manufacture_year, class: 'form-control' %>
-          </div>
-
-          <div>
-            <%= form.label :color, style: "display: block" %>
-            <%= form.text_field :color, class: 'form-control' %>
-          </div>
-
-          <div>
-            <%= form.label :renting_price, style: "display: block" %>
-            <%= form.text_field :renting_price, class: 'form-control' %>
-          </div>
-
-          <div class="photos">
-            <%= form.label :photos %>
-            <%= form.file_field :photos, :multiple => true %>
-          </div>
-
-          <div style="display: none;">
-            <%= form.label :available, style: "display: block" %>
-            <%= form.check_box :available, checked:true %>
-          </div>
-
-
-          <%= form.hidden_field :office_id, value: current_office.id %>
-          
-          <br>
-          <div class="actions">
-            <%= form.submit class: "btn btn-primary" %>
-          </div>
-        <% end %>
+        </div>
       </div>
     </div>
   </div>
-</div>
-<footer>
-  <%= button_to "Back", offices_path, :method => "get", class: "btn btn-outline-dark back-button" %>
-</footer>
+  <footer>
+    <%= button_to "Back", offices_path, :method => "get", class: "btn btn-outline-dark back-button" %>
+  </footer>
 
-<style media="screen">
-  body {
-    background: -webkit-gradient(linear, left top, left bottom, from(#F0F8FF), to(#A9A9A9)) fixed;
-  }
-  
-  .back-button {
-    position: absolute;
-    left: 15px;
-    bottom: 15px;
-  }
-</style>
-<% end %>
-
+  <style media="screen">
+    body {
+      background: -webkit-gradient(linear, left top, left bottom, from(#F0F8FF), to(#A9A9A9)) fixed;
+    }
+    
+    .back-button {
+      position: absolute;
+      left: 15px;
+      bottom: 15px;
+    }
+  </style>
+<% else %>
+  <%= render :partial => "main/shared_error" %>
+<%end %>

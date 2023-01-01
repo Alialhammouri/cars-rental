@@ -1,25 +1,46 @@
-<h2>Change your password</h2>
-
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "offices/shared/error_messages", resource: resource %>
-  <%= f.hidden_field :reset_password_token %>
-
-  <div class="field">
-    <%= f.label :password, "New password" %><br />
-    <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em><br />
-    <% end %>
-    <%= f.password_field :password, autofocus: true, autocomplete: "new-password" %>
+<div class="row d-flex justify-content-center">
+  <div class="col-md-4 col-md-offset-4 rounded-3">
+    <div class="login-panel panel panel-default">
+      <br>
+      <div class="panel-heading">
+        <h3> Please Sign In </h3>
+      </div>
+      <div class="panel-body">
+        <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+          <%= render "offices/shared/error_messages", resource: resource %>
+          <%= f.hidden_field :reset_password_token %>
+          <div class="field">
+            <%= f.label :password, "New password" %><br />
+            <% if @minimum_password_length %>
+              <em>(<%= @minimum_password_length %> characters minimum)</em><br />
+            <% end %>
+            <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class: 'form-control' %>
+          </div>
+          <div class="field">
+            <%= f.label :password_confirmation, "Confirm new password" %><br />
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control' %>
+          </div>
+          <br>
+          <%= f.submit "Update", class: "btn btn-primary" %>
+        <% end %>
+        </fieldset>
+      </div>
+    </div>
   </div>
+</div>
+<footer>
+  <%= button_to "Back", root_path, :method => "get", class: "btn btn-outline-dark back-button" %>
+</footer>
 
-  <div class="field">
-    <%= f.label :password_confirmation, "Confirm new password" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+<style media="screen">
+  body {
+    background: -webkit-gradient(linear, left top, left bottom, from(#F0F8FF), to(#A9A9A9)) fixed;
+  }
 
-  <div class="actions">
-    <%= f.submit "Change my password" %>
-  </div>
-<% end %>
+  .back-button {
+    position: absolute;
+    left: 15px;
+    bottom: 15px;
+  }
 
-<%= render "offices/shared/links" %>
+</style>

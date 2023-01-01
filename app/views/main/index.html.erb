@@ -1,19 +1,19 @@
 <div class="row" style="margin-top:75px">
   <div class="col-sm-4">
     <div class="card bg-light" style="height: 40rem;">
-      <div class="card-body">
+      <div class="card-body" style="height: 40rem;">
         <h5 class="card-title">Customer</h5>
         <p class="card-text">Are you looking to rent a car</p>
         <%= button_to "Sign In", customer_session_path, :method => "get", class: "btn btn-primary" %>
         <br>
-        <%= image_tag "Customer.png", size: "400x380" %>
+        <%= image_tag "Customer.png", size: "440x380" %>
       </div>
     </div>
   </div>
   <div class="col-sm-4">
     <div class="card bg-light" style="height: 40rem;">
-      <div class="card-body">
-        <h5 class="card-title">Client</h5>
+      <div class="card-body" style="height: 40rem;">
+        <h5 class="card-title">Office</h5>
         <p class="card-text">Office panel page</p>
         <%= button_to "Sign In", office_session_path, :method => "get", class: "btn btn-primary" %>
         <br>
@@ -23,7 +23,7 @@
   </div>
   <div class="col-sm-4">
     <div class="card bg-light" style="height: 40rem;">
-      <div class="card-body">
+      <div class="card-body" style="height: 40rem;">
         <h5 class="card-title">Admin</h5>
         <p class="card-text">Admin panel only</p>
         <%= button_to "Sign In", admin_session_path, :method => "get", class: "btn btn-primary" %>

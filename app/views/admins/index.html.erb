@@ -1,55 +1,62 @@
 <% if admin_signed_in? %>
-<%= render :partial => "admins/shared/admin_nav_bar" %>
-<div class="container">
-  <div class="row">
-    <div class="card bg-light" style="width: 20rem; height: 10rem;">
-      <div class="card-body" style="width: 20rem; height: 10rem;">
-        <h5 class="card-title">Manage Offices</h5>
-        <p class="card-text">Click here to view and manage all the Offices</p>
-        <%= button_to "Here", manage_offices_path, :method => "get", class: "btn btn-primary" %>
+  <%= render :partial => "admins/shared/admin_nav_bar" %>
+  <div class="container">
+    <div class="row">
+      <div class="card bg-light" style="width: 20rem; height: 12rem;">
+        <div class="card-body" style="width: 20rem; height: 12rem;">
+          <h5 class="card-title">Manage Offices</h5>
+          <p class="card-text">Click here to view and manage all the Offices</p>
+          <%= button_to "Here", manage_offices_path, :method => "get", class: "btn btn-primary" %>
+          <% if Office.all.pluck(:verified).include?(false) %>
+            <small style="color: red"> There are offices need to be verified</small>
+          <% end %>
+        </div>
       </div>
-    </div>
-    <div class="card bg-light" style="width: 20rem; height: 10rem;">
-      <div class="card-body" style="width: 20rem; height: 10rem;">
-        <h5 class="card-title">Manage Customers</h5>
-        <p class="card-text">Click here to view and manage all the Customers</p>
-        <%= button_to "Here", manage_customers_path, :method => "get", class: "btn btn-primary" %>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="container">
-  <div class="row">
-    <div class="card bg-light" style="width: 20rem; height: 10rem;">
-      <div class="card-body" style="width: 20rem; height: 10rem;">
-        <h5 class="card-title">Create New Admin</h5>
-        <p class="card-text">Click here to create new admin</p>
-        <%= button_to "Here", new_admin_path, :method => "get", class: "btn btn-primary" %>
-      </div>
-    </div>
-    <div class="card bg-light" style="width: 20rem; height: 10rem;">
-      <div class="card-body" style="width: 20rem; height: 10rem;">
-        <h5 class="card-title">Update Profile Admins</h5>
-        <p class="card-text">Click here to update profile</p>
-        <%= button_to "Here", edit_admin_path(current_admin.id), :method => :get , class: 'btn btn-primary' %>
+      <div class="card bg-light" style="width: 20rem; height: 12rem;">
+        <div class="card-body" style="width: 20rem; height: 12rem;">
+          <h5 class="card-title">Manage Customers</h5>
+          <p class="card-text">Click here to view and manage all the Customers</p>
+          <%= button_to "Here", manage_customers_path, :method => "get", class: "btn btn-primary" %>
+          <% if Customer.all.pluck(:verified).include?(false) %>
+            <small style="color: red"> There are customers need to be verified</small>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<style media="screen">
-  body {
-    background: -webkit-gradient(linear, left top, left bottom, from(#F0F8FF), to(#B0C4DE)) fixed;
-  }
+  <div class="container">
+    <div class="row">
+      <div class="card bg-light" style="width: 20rem; height: 10rem;">
+        <div class="card-body" style="width: 20rem; height: 10rem;">
+          <h5 class="card-title">Create New Admin</h5>
+          <p class="card-text">Click here to create new admin</p>
+          <%= button_to "Here", new_admin_path, :method => "get", class: "btn btn-primary" %>
+        </div>
+      </div>
+      <div class="card bg-light" style="width: 20rem; height: 10rem;">
+        <div class="card-body" style="width: 20rem; height: 10rem;">
+          <h5 class="card-title">Update Profile Admins</h5>
+          <p class="card-text">Click here to update profile</p>
+          <%= button_to "Here", edit_admin_path(current_admin.id), :method => :get , class: 'btn btn-primary' %>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  .card{
-    margin: auto;
-  }
+  <style media="screen">
+    body {
+      background: -webkit-gradient(linear, left top, left bottom, from(#F0F8FF), to(#B0C4DE)) fixed;
+    }
 
-  .container {
-    margin-top: 20px;
-  }
-</style>
-<% end %>
+    .card{
+      margin: auto;
+    }
 
+    .container {
+      margin-top: 20px;
+    }
+  </style>
+<% else %>
+  <%= render :partial => "main/shared_error" %>
+<%end %>

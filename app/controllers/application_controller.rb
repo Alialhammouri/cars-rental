@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
     if resource.class.to_s == "Admin"
       admins_path
     elsif resource.class.to_s == "Office"
-      offices_path
+      personal_information_path
     else
       main_page_path
     end

@@ -1,43 +1,49 @@
 class OfficesController < ApplicationController
-  before_action :configure_sign_up_params, only: [:create]
-	before_action :set_office, only: %i[ index show edit update own_cars ]
+	before_action :set_office, only: %i[show destroy update]
 
 	def index
+    @office = current_office
 	end
 
-	def show
-	end
+  def personal_information
+    @office = current_office
+    redirect_to offices_path if @office.name.present? && @office.phone_number.present? && @office.address.present?
+  end
+
 
 	def own_cars
+    @office = current_office
 	end
 
-	# def create
-  #   @office = Office.new(office_params)
+  def update
+    respond_to do |format|
+      if @office.update(office_params)
+        sign_in :office, @office, bypass: true
+        format.html { redirect_to offices_path, notice: "Office was successfully updated." }
+        format.json { render action: 'show', status: :created, location: @office }
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+        format.json { render json: @office.errors, status: :unprocessable_entity }
+      end
+    end
+  end
 
-  #   respond_to do |format|
-  #     if @office.save
-  #       format.html { redirect_to @office, notice: 'Office was successfully created.' }
-  #       format.json { render action: 'show', status: :created, location: @office }
-  #     else
-  #       format.html { render action: 'new' }
-  #       format.json { render json: @office.errors, status: :unprocessable_entity }
-  #     end
-  #   end
-  # end
-
-  def sign_up_params
-  	devise_parameter_sanitizer.for(:sign_up).push(:name)
- 	end
-
+  def destroy
+    @office.destroy
+    respond_to do |format|
+      format.html { redirect_to manage_offices_path, notice: "Office was successfully destroyed." }
+      format.json { head :no_content }
+    end
+  end
 
 	private
 
 	def set_office
-    @office = Office.find(current_office.id)
+    @office = Office.find_by(id: params[:id])
   end
 
-  # def office_params
-  # 	params.require(:office).permit(:email, :password, :name, :phone_number, :address, :verified)
-  # end
+  def office_params
+    params.require(:office).permit(:name, :phone_number, :address, :verified)
+  end
 
 end

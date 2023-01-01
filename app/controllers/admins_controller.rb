@@ -1,9 +1,8 @@
 class AdminsController < ApplicationController
   skip_before_action :verify_authenticity_token, :only => %i[ create update ]
-  before_action :set_admin, only: %i[ show edit update destroy ]
+  before_action :set_admin, only: %i[edit update]
 
   def index
-    @admin = current_admin
   end
 
   def create
@@ -11,7 +10,7 @@ class AdminsController < ApplicationController
 
     respond_to do |format|
       if @admin.save
-        format.html { redirect_to @admin, notice: 'Admin was successfully created.' }
+        format.html { redirect_to admins_path, notice: 'Admin was successfully created.' }
         format.json { render action: 'show', status: :created, location: @admin }
       else
         format.html { render action: 'new' }
@@ -37,19 +36,19 @@ class AdminsController < ApplicationController
     @admin = Admin.new
   end
 
-  def show
-    @admin = Admin.find(params[:id])
-  end
-
   def edit
   end
 
-  def show_admins
+  def verify_customer
+    @customer = Customer.find_by(params[:id])
+    @customer.update_columns(verified: true)
+    redirect_back(fallback_location: manage_customers_path)
   end
 
-  def verify_customer
-    @customer = Customer.find_by(id: params[:id])
-    @customer.update(verified: true)
+  def verify_office
+    @office = Office.find_by(params[:id])
+    @office.update_columns(verified: true)
+    redirect_back(fallback_location: manage_offices_path)
   end
 
   def manage_customers
@@ -61,12 +60,11 @@ class AdminsController < ApplicationController
   private
 
   def set_admin
-    @admin = Admin.find(params[:id])
+    @admin = current_admin
   end
 
   def admin_params
     params.require(:admin).permit(:name, :email, :password)
   end
-
 
 end

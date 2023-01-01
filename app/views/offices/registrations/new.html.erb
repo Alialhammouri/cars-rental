@@ -10,21 +10,6 @@
           <%= render "offices/shared/error_messages", resource: resource %>
 
           <div class="field">
-            <%= f.label :name %><br />
-            <%= f.text_field :name, autofocus: true, class: 'form-control' %>
-          </div>
-
-          <div class="field">
-            <%= f.label :phone_number %><br />
-            <%= f.text_field :phone_number, autofocus: true, class: 'form-control' %>
-          </div>
-
-          <div class="field">
-            <%= f.label :address %><br />
-            <%= f.text_field :address, autofocus: true, class: 'form-control' %>
-          </div>
-
-          <div class="field">
             <%= f.label :email %><br />
             <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
           </div>
@@ -58,7 +43,7 @@
             
 <style media="screen">
   body {
-    background: -webkit-gradient(linear, left top, left bottom, from(#F0F8FF), to(#B0C4DE)) fixed;
+    background: -webkit-gradient(linear, left top, left bottom, from(#F0F8FF), to(#A9A9A9)) fixed;
   }
   
   .back-button {
