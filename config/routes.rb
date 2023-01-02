@@ -21,20 +21,18 @@ Rails.application.routes.draw do
     end
   end
   get '/own_cars', to: 'offices#own_cars'
+  get '/booked_cars', to: 'offices#booked_cars'
   get '/personal_information', to: 'offices#personal_information'
 
 
-  resources :cars
-  get '/show_images', to: 'cars#show_images'
+  resources :cars do
+    member do
+      get :show_images
+    end
+  end
 
   devise_for :customers
   resources :customers, only: [:destroy, :create, :update, :edit, :new]
   get '/main_page', to: 'customers#main_page'
-
-
-
-
-
-
 
 end

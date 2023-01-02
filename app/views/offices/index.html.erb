@@ -5,11 +5,11 @@
         <div class="card bg-light" style="width: 20rem; height: 10rem;">
           <div class="card-body" style="width: 20rem; height: 10rem;">
             <h5 class="card-title">Add New Car</h5>
-            <p class="card-text">Add a New Car</p>
+            <p class="card-text">Add New Car</p>
             <% if @office.verified %>
               <%= button_to "Here", new_car_path, :method => "get", class: "btn btn-primary" %>
             <% else %>
-            <small style="color: red">Please enter your personal information to get verified and start posting your carsp</small>
+            <small style="color: red">Please enter your personal information to get verified and start posting your cars</small>
             <% end %>
           </div>
         </div>
@@ -28,13 +28,13 @@
           <div class="card-body" style="width: 20rem; height: 10rem;">
             <h5 class="card-title">Manage Bookings</h5>
             <p class="card-text">Mange All Bookings</p>
-            <%= button_to "Here", show_admins_path, :method => "get", class: "btn btn-primary" %>
+            <%= button_to "Here", booked_cars_path, :method => "get", class: "btn btn-primary" %>
           </div>
         </div>
         <div class="card bg-light" style="width: 20rem; height: 10rem;">
           <div class="card-body" style="width: 20rem; height: 10rem;">
             <h5 class="card-title">Enter Your Personal Information</h5>
-            <p class="card-text">Click here to update your information</p>
+            <p class="card-text">Update Your information</p>
             <%= button_to "Here", personal_information_path, :method => "get", class: "btn btn-primary" %>
           </div>
         </div>

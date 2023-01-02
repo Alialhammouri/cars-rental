@@ -28,7 +28,7 @@
         <th><%= car.renting_price%></th>
         <th><%= car.available%></th>
         <th><%= button_to "Edit this car", edit_car_path(car), :method => "get", class: "btn btn-primary btn-sm" %></th>
-        <th><%= button_to "Show this car", show_images_path(car), :method => "get", class: "btn btn-primary btn-sm" %></th>
+        <th><%= button_to "Show this car", show_images_car_path(car), :method => "get", form: {target: '_blank'}, class: "btn btn-primary btn-sm" %></th>
         <th><%= button_to "Delete this car", car, method: :delete, class: "btn btn-danger btn-sm" %></th>
       </tr>
       <% end %>

@@ -1,6 +1,6 @@
 class Office < ApplicationRecord
   has_many :cars, :dependent => :destroy
-  # validate :password_complexity
+  validate :password_complexity
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
