@@ -7,7 +7,11 @@ class OfficesController < ApplicationController
 
   def personal_information
     @office = current_office
-    # redirect_to offices_path if @office.name.present? && @office.phone_number.present? && @office.address.present? && @office.created_at > 5.minutes
+    redirect_to offices_path if @office.name.present? && @office.phone_number.present? && @office.address.present?
+  end
+
+  def update_personal_information
+    @office = current_office
   end
 
 

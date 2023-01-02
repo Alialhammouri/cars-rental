@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   get '/own_cars', to: 'offices#own_cars'
   get '/booked_cars', to: 'offices#booked_cars'
   get '/personal_information', to: 'offices#personal_information'
+  get '/update_personal_information', to: 'offices#update_personal_information'
 
 
   resources :cars do
