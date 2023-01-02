@@ -23,7 +23,7 @@
         <th><%= office.address%></th>
         <th><%= office.verified%></th>
         <th> <% if office.verified == false %>
-             <%= button_to "Verify this Office", admin_verify_office_path(office), method: :put, class: "btn btn-primary btn-sm"%>
+             <%= button_to "Verify This Office", verify_office_office_path(office), method: :put, class: "btn btn-primary btn-sm"%>
              <% else %>
              <%= "Verified" %>
              <% end %>

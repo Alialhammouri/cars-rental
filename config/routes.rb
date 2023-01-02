@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   devise_for :admins
   resources :admins, only: [:index, :create, :update, :edit, :new] do
     put :verify_customer
-    put :verify_office
   end
   get '/show_admins', to: 'admins#show_admins'
   get '/manage_customers', to: 'admins#manage_customers'
@@ -17,6 +16,7 @@ Rails.application.routes.draw do
   devise_for :offices
   resources :offices do
     member do
+      put :verify_office
       get :own_cars
     end
   end
@@ -33,7 +33,10 @@ Rails.application.routes.draw do
   end
 
   devise_for :customers
-  resources :customers, only: [:destroy, :create, :update, :edit, :new]
+  resources :customers, only: [:destroy, :create, :update, :edit, :new] do
+    put :verify_customer
+  end
+
   get '/main_page', to: 'customers#main_page'
 
 end

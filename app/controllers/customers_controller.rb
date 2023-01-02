@@ -1,5 +1,5 @@
 class CustomersController < ApplicationController
-  before_action :set_customer, only: %i[ update destroy ]
+  before_action :set_customer, only: %i[ update destroy verify_customer ]
 	
 	def main_page
 	end
@@ -26,6 +26,10 @@ class CustomersController < ApplicationController
     end
   end
 
+  def verify_customer
+    @customer.update_columns(verified: true)
+    redirect_back(fallback_location: manage_customers_path)
+  end
 
 	private
 
@@ -35,7 +39,7 @@ class CustomersController < ApplicationController
 
 
 	def set_customer
-		@customer = Customer.find(params[:id])
+    @customer = Customer.find_by(id: params[:id])
 	end
 
 	

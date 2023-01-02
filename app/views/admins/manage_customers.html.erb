@@ -29,7 +29,7 @@
         <th><%= customer.birth_date%></th>
         <th><%= customer.verified%></th>
         <th> <% if customer.verified == false %>
-             <%= button_to "Verify This Customer", admin_verify_customer_path(customer), method: :put, class: "btn btn-primary btn-sm"%>
+             <%= button_to "Verify This Customer", customer_verify_customer_path(customer), method: :put, class: "btn btn-primary btn-sm"%>
              <% else %>
              <%= "Verified" %>
              <% end %>

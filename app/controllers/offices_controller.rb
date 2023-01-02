@@ -1,5 +1,5 @@
 class OfficesController < ApplicationController
-	before_action :set_office, only: %i[show destroy update]
+	before_action :set_office, only: %i[show destroy update verify_office]
 
 	def index
     @office = current_office
@@ -42,6 +42,11 @@ class OfficesController < ApplicationController
       format.html { redirect_to manage_offices_path, notice: "Office was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  def verify_office
+    @office.update_columns(verified: true)
+    redirect_back(fallback_location: manage_offices_path)
   end
 
 	private

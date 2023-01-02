@@ -39,18 +39,6 @@ class AdminsController < ApplicationController
   def edit
   end
 
-  def verify_customer
-    @customer = Customer.find_by(params[:id])
-    @customer.update_columns(verified: true)
-    redirect_back(fallback_location: manage_customers_path)
-  end
-
-  def verify_office
-    @office = Office.find_by(params[:id])
-    @office.update_columns(verified: true)
-    redirect_back(fallback_location: manage_offices_path)
-  end
-
   def manage_customers
   end
 
